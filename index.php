@@ -14,10 +14,16 @@
 <body>
 	
 	 <form action="login.php" method="post">
+			Login:
+			 <br/>
 			<input type="text" name="login"/>
+			<br/>
+			Password:
+			<br/>
+			<input type="password" name="password"/>
 		    <br/>
-		    <input type="password" name="password"/>
-		    <br/>
+		
+			</br>
 		    <button type="submit">log in</button>
 	 </form>
 	
