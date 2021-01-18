@@ -2,6 +2,14 @@
 
 session_start();
 
+session_start();
+	
+	if(!isset($_SESSION['loggedin']))
+	{
+		header ('Location: index.php');
+		exit();
+	}
+
 ?>
 
 
@@ -24,9 +32,8 @@ session_start();
 	
 	<?php
 	
+	echo "<p>Hello" .$_SESSION['username'].'! [ <a href="logout.php">Log out!</a>]</p>';
 	echo "<p>ID  ".$_SESSION['id']."!";
-	echo "<p>Witaj  ".$_SESSION['username']."!";
-	echo "<p>Hasło  ".$_SESSION['password']."!";
 	echo "<p>e-mail  ".$_SESSION['email']."!";
 	
 	?>
