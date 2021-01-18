@@ -1,3 +1,15 @@
+<?php
+
+	session_start();
+	
+	if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']==true))
+	{
+		header('Location: main_page.php');
+		exit();
+	}
+	
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -26,6 +38,12 @@
 			</br>
 		    <button type="submit">log in</button>
 	 </form>
+	 
+	<?php
+		if(isset($_SESSION['error'])) echo $_SESSION['error'];
+	?>
+
+
 	
 </body>
 </html>
