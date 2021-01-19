@@ -2,6 +2,12 @@
 
 session_start();
 	
+	if ((!isset($_POST['login'])) || (!isset($_POST['password'])))
+	{
+		header('Location: index.php');
+		exit();
+	}
+	
 require_once "connect.php";
 
 	$connection = @new mysqli($host, $db_user, $db_password, $db_name);
@@ -12,17 +18,22 @@ require_once "connect.php";
 	}
 	else
 	{
-		$login= $_POST['login'];
+		$login = $_POST['login'];
 		$password = $_POST['password'];
 		
-		$sql = "SELECT * FROM users WHERE username = '$login' AND password = '$password'";
+		$login = htmlentities($login, ENT_QUOTES, "UTF-8");
+		$password = htmlentities($password, ENT_QUOTES, "UTF-8");
 		
-		if ($result =@$connection->query($sql))
+		if ($result = @$connection->query(
+		sprintf("SELECT * FROM users WHERE username='%s' AND password='%s'",
+		mysqli_real_escape_string($connection,$login),
+		mysqli_real_escape_string($connection,$password))))
 		{
 			$how_many_users = $result->num_rows;
 			if ($how_many_users>0)
 			{
 				$_SESSION['loggedin'] = true;
+				
 				$row = $result->fetch_assoc();
 				$_SESSION['id']  = $row['id'];
 				$_SESSION['username']  = $row['username'];
@@ -35,12 +46,8 @@ require_once "connect.php";
 				
 			} else {
 						$_SESSION['error'] = '<span style="color:red">Incorrect login or password !</span>';
-					header('Location: index.php');	
-				
-				
+					header('Location: index.php');		
 			}
-	
-		echo "It works";
 		
 		$connection->close();
 	}
