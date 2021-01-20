@@ -24,6 +24,11 @@
 </head>
 
 <body>
+
+	 <b> Personal finances </b> - your money will not be wasted anymore!!! <br />  <br />
+	 
+	<a href="registration.php">Registration - create account for free!</a>
+	<br /> <br />
 	
 	 <form action="login.php" method="post">
 			Login:
