@@ -41,7 +41,7 @@
 		    <br/>
 		
 			</br>
-		    <button type="submit">log in</button>
+		    <button type="submit">Sign in</button>
 	 </form>
 	 
 	<?php

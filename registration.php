@@ -218,7 +218,7 @@
 				echo $_SESSION['fr_password2'];
 				unset($_SESSION['fr_password2']);
 			}
-		?>"name="password2" /><br />
+		?>"name="password2" /><br /><br />
 		
 		<label>
 			<input type="checkbox" name="terms" <?php
@@ -237,6 +237,7 @@
 				unset($_SESSION['e_terms']);
 			}
 		?>
+		<br /><br />
 		
 		  <div class="g-recaptcha" data-sitekey="6Leun-kZAAAAABcq3o2JqENw68xhnw5WAet3Y42d"></div>
 		  
@@ -248,7 +249,7 @@
 			}
 		?>  <br />
 		  
-		  <input type="submit" value="SIgn Up" />
+		  <input type="submit" value="Sign up" />
 		  
 	</form>
 
