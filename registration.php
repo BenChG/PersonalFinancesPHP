@@ -24,8 +24,6 @@
 		$email = $_POST['email'];
 		$emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
 		
-		echo $emailB;
-		
 		if ((filter_var($emailB, FILTER_VALIDATE_EMAIL)==false) || ($emailB!=$email))
 		{
 			$all_right=false;
@@ -91,8 +89,8 @@
 				
 				if (!$result) throw new Exception($connection->error);
 				
-				$ile_takich_maili = $result->num_rows;
-				if($ile_takich_maili>0)
+				$how_many_emails = $result->num_rows;
+				if($how_many_emails>0)
 				{
 					$all_right=false;
 					$_SESSION['e_email']="There is existing account for this e-mail addres in our database!";
@@ -168,8 +166,7 @@
 		  echo $_SESSION['fr_login'];
 		  unset($_SESSION['fr_login']);
 		}
-		?>"
-		name="login" /> <br />
+		?>"name="login" /> <br />
 		
 		<?php
 			if (isset($_SESSION['e_login']))
@@ -185,8 +182,7 @@
 		  echo $_SESSION['fr_email'];
 		  unset($_SESSION['fr_email']);
 		}
-		?>
-		"name="email" /> <br />
+		?>"name="email" /> <br />
 		
 		 <?php
 			if (isset($_SESSION['e_email']))
@@ -195,7 +191,7 @@
 				unset($_SESSION['e_email']);
 			}
 		?>
-		
+
 		Your password: <br /> <input type="password" value="<?php 
 		if (isset($_SESSION['fr_password1'])) 
 		{ 
