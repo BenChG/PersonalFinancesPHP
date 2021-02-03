@@ -2,15 +2,7 @@
 
 	session_start();
 	
-	if (isset($_SESSION['success_registration']))
-	{
-		header('Location: index.php');
-		exit();
-	}
-	else
-	{
-	unset($_SESSION['success_registration']);
-	}
+	echo 'New '. $_SESSION['type'] .' added to personal budget!';
 	
 ?>
 
@@ -28,12 +20,9 @@
 </head>
 
 <body>
+    
+	</br> </br>
+	<a href="main_page.php">Go back to main page!</a>
 
-	Thank you for registration on out website! Now you can log in on your account!<br />  <br />
-	We have added default categories of payment, incomes, expenses to your account!
-	 
-	<a href="index.php">Log in on your account!</a>
-	<br /> <br />
-	
 </body>
 </html>
