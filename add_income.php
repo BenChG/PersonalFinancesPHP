@@ -24,22 +24,28 @@
 		
 			else
 			{
-				
-					if ($connection->query("INSERT INTO incomes VALUES (NULL, '$id', '$incomeCategory', '$incomeAmount', '$incomeDate', '$incomeComments')"))
-					{	
-						$_SESSION['type']="income";
-						header('Location: add.php');
-					}
+				if($result = $connection->query("SELECT id FROM incomes_category_assigned_to_users WHERE user_id='$id' AND name='$incomeCategory'"))
+				{
+						$row = $result->fetch_assoc();
+						$incomeCategoryId = $row["id"];	
 					
-					else
-					{ 
-						throw new Exception($connection->error);
-					}
-		
+						if ($connection->query("INSERT INTO incomes VALUES 
+						(NULL, '$id', '$incomeCategoryId', '$incomeAmount', '$incomeDate', '$incomeComments')"))
+						{	
+							$_SESSION['type']="income";
+							header('Location: add.php');
+						}
+						
+						else
+						{ 
+							throw new Exception($connection->error);
+						}
+						
+				}	
+					$connection->close();	
 			}
-				
-			$connection->close();	
 		}
+
 			
 		catch(Exception $e)
 		{
