@@ -112,27 +112,74 @@
 					//Great, all tests passed, we are adding now new user to our database!
 					
 					if ($connection->query("INSERT INTO users VALUES (NULL, '$login', '$password_hash', '$email')"))
-					{
+					{	 
 						$_SESSION['successful_registration']=true;
 						header('Location: hello.php');
+						$success=true;
+						
+						if($result = $connection->query("SELECT * FROM users WHERE username='$login'"))
+					{
+						$row = $result->fetch_assoc();
+						$id = $row["id"];
+						
+						if ($connection->query("INSERT INTO payment_methods_assigned_to_users VALUES
+							(NULL, '$id', 'Cash'), (NULL,'$id', 'Debit Card'), (NULL,'$id', 'Credit Card')"))
+							{
+								$_SESSION['successfully_added_defalut_incomes']=true;
+							}
+						
+						else
+							{ 
+								$success=false; throw new Exception($connection->error);
+							}
+										
+						if ($connection->query("INSERT INTO incomes_category_assigned_to_users VALUES
+							(NULL, '$id', 'Salary'), (NULL,'$id', 'Interest'), (NULL,'$id', 'Allegro'), (NULL,'$id', 'Another')"))
+							{
+								$_SESSION['successfully_added_defalut_incomes']=true;
+							}
+						
+						else
+							{ 
+								$success=false; throw new Exception($connection->error);
+							}
+			
+						if ($connection->query("INSERT INTO expenses_category_assigned_to_users VALUES (NULL, '$id', 'Transport'), (NULL,'$id', 'Books'), (NULL,'$id', 'Food'), 
+							(NULL,'$id', 'Apartments'),(NULL, '$id', 'Telecommunication'), (NULL,'$id', 'Health'), (NULL,'$id', 'Clothes'), (NULL,'$id', 'Hygiene'),(NULL, '$id', 'Kids'), (NULL,'$id', 'Recreation'), (NULL,'$id', 'Trip'), (NULL,'$id', 'Savings'),(NULL, '$id', 'For Retirement'), (NULL,'$id', 'Debt Repayment'), (NULL,'$id', 'Gift'), (NULL,'$id', 'Another')"))					
+							{
+									$_SESSION['successfully_added_defalut_expenses']=true;					
+							}
+							
+						else
+							{
+								$success=false; throw new Exception($connection->error);
+							}
+						}
 					}
+					
+					else
+					{ 
+						$success=false; throw new Exception($connection->error);
+					}
+		
+				}
+					
 					else
 					{
 						 throw new Exception($connection->error);
+						 $success=false;
 					}
-					
-				}
-				
-				$connection->close();
-				
-			}
+								
+			}				
+			
+					$connection->close();	
 		}
+			
 		catch(Exception $e)
 		{
 			echo '<span style="color:red;"> Server error! We appologize for the inconvenience and ask you to register another day!</span>';
 			echo '<br />Developer information: '.$e;
 		}
-
 	}
 	
 ?>

@@ -28,10 +28,16 @@ session_start();
 	<?php
 	
 	echo "<p>Hello" .$_SESSION['username'].'! [ <a href="logout.php">Log out!</a>]</p>';
-	echo "<p>ID  ".$_SESSION['id']."!";
-	echo "<p>e-mail  ".$_SESSION['email']."!";
 	
 	?>
+			<a href="add_income.php">Add new income </a>
+			<br /> <br />
+	
+			<a href="add_expense.php">Add new expense</a>
+			<br /> <br />
+	
+			<a href="show_balance.php">Show the balance</a>
+			<br /> <br />
 	
 </body>
 </html>
