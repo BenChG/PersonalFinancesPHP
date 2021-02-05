@@ -52,18 +52,33 @@
 						<th>Comments</th>
 						</tr>";
 						
+						
+						
 						while ($row = mysqli_fetch_array($result))
 						{
+							$categoryId = $row['income_category_assigned_to_user_id'];
+							
+							if ($resultCategoryName = $connection->query("SELECT name FROM incomes_category_assigned_to_users WHERE id='$categoryId'"))
+							{
+								$rowCategoryName = $resultCategoryName->fetch_assoc();
+								$incomeCategory = $rowCategoryName ["name"];	
+							}
+							
+							else
+							{ 
+								throw new Exception($connection->error);
+							}	
+							
 							echo "<tr>";
 							echo "<td>" . $row['id'] . "</td>";
 							echo "<td>" . $row['date_of_income'] . "</td>";		
 							echo "<td>" . $row['amount'] . " $</td>";				
-							echo "<td>" . $row['income_category_assigned_to_user_id'] . "</td>";
+							echo "<td>" . "$incomeCategory". "</td>";
 							echo "<td>" . $row['income_comment'] . "</td>";
 							echo "</tr>";		
 							$SumOfIncomes = $SumOfIncomes + $row['amount'];
 						}
-							
+						
 						echo "<tr>".'<td colspan="5">Sum of incomes: '.number_format($SumOfIncomes,2)." $</td></tr>";
 						echo "</table></br>";	
 					}	
@@ -87,12 +102,38 @@
 						
 						while ($row = mysqli_fetch_array($result))
 						{
+							$categoryId = $row['expense_category_assigned_to_user_id'];
+							
+							if ($resultCategoryName = $connection->query("SELECT name FROM expenses_category_assigned_to_users WHERE id='$categoryId'"))
+							{
+								$rowCategoryName = $resultCategoryName->fetch_assoc();
+								$expenseCategory = $rowCategoryName ["name"];	
+							}
+							
+							else
+							{ 
+								throw new Exception($connection->error);
+							}	
+							
+							$paymentId = $row['payment_method_assigned_to_user_id'];
+							
+							if ($resultPaymentMethod = $connection->query("SELECT name FROM payment_methods_assigned_to_users WHERE id='$paymentId'"))
+							{
+								$rowPaymentMethod = $resultPaymentMethod->fetch_assoc();
+								$paymentMethod = $rowPaymentMethod ["name"];	
+							}
+							
+							else
+							{ 
+								throw new Exception($connection->error);
+							}	
+							
 							echo "<tr>";
 							echo "<td>" . $row['id'] . "</td>";
 							echo "<td>" . $row['date_of_expense'] . "</td>";		
 							echo "<td>" . $row['amount'] . " $</td>";				
-							echo "<td>" . $row['expense_category_assigned_to_user_id'] . "</td>";
-							echo "<td>" . $row['payment_method_assigned_to_user_id'] . "</td>";				  
+							echo "<td>" . "$expenseCategory" . "</td>";
+							echo "<td>" .  "$paymentMethod". "</td>";				  
 							echo "<td>" . $row['expense_comment'] . "</td>";
 							echo "</tr>";	
 							$SumOfExpenses = $SumOfExpenses + $row['amount'];
@@ -100,30 +141,30 @@
 					    echo "<tr>".'<td colspan="6">Sum of expenses: '.number_format($SumOfExpenses,2)." $</td></tr>";
 						echo "</table></br>";	
 						
-					
+						
 						$Balance = $SumOfIncomes-$SumOfExpenses;
-					
+						
 						
 						echo "<b> Total balance: ".number_format($Balance,2)." $ </b>";
 					}
 					
-				
-						else
-						{ 
-							throw new Exception($connection->error);
-						}				
-						
-					}
 					
-					$connection->close();	
+					else
+					{ 
+						throw new Exception($connection->error);
+					}				
+					
 				}
 				
-				catch(Exception $e)
-				{
-					echo '<span style="color:red;"> Server error! We appologize for the inconvenience and ask you to register another day!</span>';
-					echo '<br />Developer information: '.$e;
-				}
-				
+				$connection->close();	
+			}
+			
+			catch(Exception $e)
+			{
+				echo '<span style="color:red;"> Server error! We appologize for the inconvenience and ask you to register another day!</span>';
+				echo '<br />Developer information: '.$e;
+			}
+			
 		?>
 		
 	</body>
