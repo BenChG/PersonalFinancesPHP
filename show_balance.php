@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-	
+		
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		
@@ -18,10 +18,13 @@
 		
 		<?php
 			
+			global $SumOfIncomes;
+			global $SumOfExpenses;
+			
 			session_start();
 			
 			$id = 	$_SESSION['id'];
-	
+			
 			
 			require_once "connect.php";
 			mysqli_report(MYSQLI_REPORT_STRICT);
@@ -40,7 +43,7 @@
 					if($result = $connection->query("SELECT * FROM incomes WHERE user_id='$id'"))
 					{
 						echo "List of incomes:"."<br/>"; 
-						echo "<table border='1'>
+						echo "<table border='1', bordercolor='green'>
 						<tr>
 						<th>Id</th>
 						<th>Date</th>	
@@ -54,13 +57,15 @@
 							echo "<tr>";
 							echo "<td>" . $row['id'] . "</td>";
 							echo "<td>" . $row['date_of_income'] . "</td>";		
-							echo "<td>" . $row['amount'] . "</td>";				
+							echo "<td>" . $row['amount'] . " $</td>";				
 							echo "<td>" . $row['income_category_assigned_to_user_id'] . "</td>";
 							echo "<td>" . $row['income_comment'] . "</td>";
-							echo "</tr>";				
+							echo "</tr>";		
+							$SumOfIncomes = $SumOfIncomes + $row['amount'];
 						}
-						echo "</table></br>";
-	
+							
+						echo "<tr>".'<td colspan="5">Sum of incomes: '.number_format($SumOfIncomes,2)." $</td></tr>";
+						echo "</table></br>";	
 					}	
 					else
 					{ 
@@ -70,7 +75,7 @@
 					if($result = $connection->query("SELECT * FROM expenses WHERE user_id='$id'"))
 					{
 						echo "List of expenses:"."<br/>"; 
-						echo "<table border='1'>
+						echo "<table border='1', bordercolor='red'>
 						<tr>
 						<th>Id</th>
 						<th>Date</th>	
@@ -85,32 +90,40 @@
 							echo "<tr>";
 							echo "<td>" . $row['id'] . "</td>";
 							echo "<td>" . $row['date_of_expense'] . "</td>";		
-							echo "<td>" . $row['amount'] . "</td>";				
+							echo "<td>" . $row['amount'] . " $</td>";				
 							echo "<td>" . $row['expense_category_assigned_to_user_id'] . "</td>";
 							echo "<td>" . $row['payment_method_assigned_to_user_id'] . "</td>";				  
 							echo "<td>" . $row['expense_comment'] . "</td>";
 							echo "</tr>";	
+							$SumOfExpenses = $SumOfExpenses + $row['amount'];
 						}
-						echo "</table>"."<br/>";
+					    echo "<tr>".'<td colspan="6">Sum of expenses: '.number_format($SumOfExpenses,2)." $</td></tr>";
+						echo "</table></br>";	
 						
-					}	
 					
-					else
-					{ 
-						throw new Exception($connection->error);
-					}				
+						$Balance = $SumOfIncomes-$SumOfExpenses;
 					
+						
+						echo "<b> Total balance: ".number_format($Balance,2)." $ </b>";
+					}
+					
+				
+						else
+						{ 
+							throw new Exception($connection->error);
+						}				
+						
+					}
+					
+					$connection->close();	
 				}
 				
-				$connection->close();	
-			}
-			
-			catch(Exception $e)
-			{
-				echo '<span style="color:red;"> Server error! We appologize for the inconvenience and ask you to register another day!</span>';
-				echo '<br />Developer information: '.$e;
-			}
-			
+				catch(Exception $e)
+				{
+					echo '<span style="color:red;"> Server error! We appologize for the inconvenience and ask you to register another day!</span>';
+					echo '<br />Developer information: '.$e;
+				}
+				
 		?>
 		
 	</body>
