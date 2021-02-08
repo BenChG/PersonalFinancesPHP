@@ -189,6 +189,8 @@
 <head>
 	 <meta chatset="utf-8"/>
 	 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	 <link rel="stylesheet" href="main.css" type="text/css" />
+	 
 	 <title>Personal finanses - create your own account!</title>
 	 <script src="https://www.google.com/recaptcha/api.js"></script>
 	 

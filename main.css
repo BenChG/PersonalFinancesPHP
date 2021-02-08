@@ -1,0 +1,121 @@
+body
+{
+	background-color: #263238;
+	font-family: 'Lato', sans-serif;
+	font-size: 20px;
+	color: #ffffff;
+	cursor: pointer;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a.link
+{
+	color: #0066cc;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+a.link:hover
+{
+	color: #004d99;
+}
+
+a.main_page
+{
+	text-align: center;
+	width: 500px !important;
+	height: 100px;
+	background-color: #00b300;
+	border-radius: 3px;
+	border: 3px outset #C0C0C0;
+	font-size: 20px;
+	color: #f2f2f2;
+	padding: 5px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a.main_page:hover
+{
+	color: #cccccc;
+}
+
+
+input[type=radio]
+{
+	text-align: center;
+	width: 15px;
+	height: 15px;
+	background-color: #ECF0F1;
+	border: 2px solid #C0C0C0;
+	border-radius: 5px;
+	font-size: 20px;
+	color: #013EB0;
+	margin-bottom: 10px;
+	padding:0px;
+	cursor: pointer;
+}
+
+input[type=radio]:focus
+{
+	-webkit-box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9);
+	-moz-box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9);
+	box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9);
+	border: 2px solid #37474F;
+	background-color: #e9f3e9;
+	color: #37474F;
+}
+
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date]
+{
+	text-align: center;
+	width: 200px;
+	height: 30px;
+	background-color: #ECF0F1;
+	border: 2px solid #C0C0C0;
+	border-radius: 5px;
+	font-size: 20px;
+	color: #013EB0;
+	margin-bottom: 10px;
+	padding:0px;
+	cursor: text;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=number]:focus,
+input[type=date]:focus,
+{
+	-webkit-box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9);
+	-moz-box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9);
+	box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9);
+	border: 2px solid #37474F;
+	background-color: #e9f3e9;
+	color: #37474F;
+}
+
+input[type=submit]
+{
+	text-align: center;
+	width: 200px;
+	height: 35px;
+	background-color: #1F618D;
+	border-radius: 3px;
+	border: 3px outset #C0C0C0;
+	font-size: 20px;
+	color: white;
+	padding: 0px;
+	cursor: pointer;
+}
+
+input[type=submit]:focus
+{
+	-webkit-box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.5);
+	-moz-box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.5);
+	box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.5);
+}
