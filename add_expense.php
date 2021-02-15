@@ -78,53 +78,139 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<link rel="stylesheet" href="main.css" type="text/css" />
 		
-		<title>Main page</title>
-		
-		<meta name="description" content="Personal Finances - the best way to manage and save your money" />
-		<meta name="keywords" content="finances, personal, budget, money, wallet, save, expenses, expenses, manage" />
+		<meta charset="utf-8">
+		<title>Add expense</title>
+		<meta name="description" content="Personal Finanes">
+		<meta name="keywords" content="finances, personal finances, budget, personal budget, income, outcome">
+		<meta name="author" content="BCG">
+		<meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+		<link rel="stylesheet" href="main.css">
+		<link href "https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/fontello.css" type="text/css" />
 		
 	</head>
 	
 	<body>
+		<body>
+			
+			
+			<div id="container"style="margin-top:120px;">
+				
+				<div>
+					
+					<div class="tile_icon_balance">
+						<a href="main_page.php" class="link"><i class="icon-undo2"></i></a>	
+					</div>
+					
+					<div class="header_main_menu">
+						Personal Finances 
+					</div>
+					
+					<div style="clear:both;"></div>		
+					
+				</div>
+				
+				<div class="transaction" style="background-color: #33CC33;"> 
+					Add new income.
+				</div>
+				
+				<div class="long_tile">	
+					<div id="additional"> <i> Select expense category: </i> </div>		
+				</div>		
+				
+				<form action="add_expense.php" method="post">	
+					
+					<div class="radio_category"style="border-left:2px solid #C0C0C0;">							
+						<input type="radio" name="expenseCategory" value="Transport"> Transport 
+						</br>
+						<input type="radio" name="expenseCategory" value="Book"> Book
+						</br>
+						<input type="radio" name="expenseCategory" value="Food"> Food
+						</br>
+						<input type="radio" name="expenseCategory" value="Apartments"> Apartments 
+						</br>
+						<input type="radio" name="expenseCategory" value="Telecommunication"> Telecommunication
+						</br>
+						<input type="radio" name="expenseCategory" value="Health"> Health
+						</br>
+						<input type="radio" name="expenseCategory" value="Cothes"> Cothes
+						</br>
+						<input type="radio" name="expenseCategory" value="Hygiene"> Hygiene
+					</div>
+					
+					<div class="radio_category" style="border-right:2px solid #C0C0C0;">	
+						<input type="radio" name="expenseCategory" value="Kids"> Kids 
+						</br>
+						<input type="radio" name="expenseCategory" value="Recreation"> Recreation 
+						</br>
+						<input type="radio" name="expenseCategory" value="Trip"> Trip 
+						</br>
+						<input type="radio" name="expenseCategory" value="Savings"> Savings 
+						</br>
+						<input type="radio" name="expenseCategory" value="For Retirement"> For Retirement 
+						</br>
+						<input type="radio" name="expenseCategory" value="Debt Repayment"> Debt Repayment 
+						</br>
+						<input type="radio" name="expenseCategory" value="Gift"> Gift 
+						</br>
+						<input type="radio" name="expenseCategory" value="Another"> Another  
+					</div>
+					
+							<div style="clear:both;"></div>
+					
+							<div class="radio">	
+							Select payment method: </br>
+							<div style="margin-top:10px;">	
+								<input type="radio" name="paymentMethod" value="Cash"> Cash 
+								<input type="radio" name="paymentMethod" value="Debit Card"> Debit Card 
+								<input type="radio" name="paymentMethod" value="Credit Card"> Credit Card 
+								</br>
+							</div>
+						</div>
+					
+					<div class="tile_left" style="margin-bottom: 0px;">
+					
+						<input type="number" name="expenseAmount" placeholder="Amount" step="any">
+						</br>
+						<input type="submit" value="Add new expense">
+						
+					</div>
+					
+					<div class="tile_right" style="margin-bottom: 0px;">
 		
-		<b> Personal finances </b> - your money will not be wasted anymore!!! <br />  <br />
+						<input type="date" name="expenseDate" placeholder="Transaction date">
+						</br>
+						<input type="text" name="expenseComments" placeholder="Comments">
+					</div>
+					
+					<div style="clear:both;"></div>	
+					
+				</form>
+
+				
+			</body>
+			
+			<footer>
+				
+				<div class="long_tile">	
+					<div id="email"> Contact me via mail:  
+						<a href="mailto:ben.chalubinski@gmail.com target="_blank" class="link">
+							<i class="icon-mail"></i> 
+						</a>			
+					</div>
+				</div>
+				
+				<div class="long_tile">	
+					<div id="rights">
+						2020 &copy; Personal Finances  
+						</br>
+						by Benedykt Chałubiński-Gonerko	
+					</div>
+				</div>
+				
+			</div>		
+			
+		</footer>  
 		
-		<form action="add_expense.php" method="post">
-			Select expense category:</br>
-			<input type="radio" name="expenseCategory" value="Transport"> Transport </br>
-			<input type="radio" name="expenseCategory" value="Books"> Books </br>
-			<input type="radio" name="expenseCategory" value="Food"> Food </br>
-			<input type="radio" name="expenseCategory" value="Apartments"> Apartments </br>
-			<input type="radio" name="expenseCategory" value="Telecommunication"> Telecommunication </br>
-			<input type="radio" name="expenseCategory" value="Health"> Health </br>
-			<input type="radio" name="expenseCategory" value="Clothes"> Clothes </br>
-			<input type="radio" name="expenseCategory" value="Hygiene"> Hygiene </br>
-			<input type="radio" name="expenseCategory" value="Kids"> Kids </br>
-			<input type="radio" name="expenseCategory" value="Recreation"> Recreation </br>	
-			<input type="radio" name="expenseCategory" value="Trip"> Trip </br>
-			<input type="radio" name="expenseCategory" value="Savings"> Savings </br>
-			<input type="radio" name="expenseCategory" value="For Retirement"> For Retirement </br>
-			<input type="radio" name="expenseCategory" value="Debt Repayment"> Debt Repayment </br>
-			<input type="radio" name="expenseCategory" value="Gift"> Gift </br>
-			<input type="radio" name="expenseCategory" value="Another"> Another </br> </br>
-			
-			Select payment method:</br>
-			<input type="radio" name="paymentMethod" value="Cash"> Cash </br>
-			<input type="radio" name="paymentMethod" value="Debit Card"> Debit Card </br>
-			<input type="radio" name="paymentMethod" value="Credit Card"> Credit Card </br></br>
-			
-			<label> Transaction date <input type="date" name="expenseDate"></label></br></br>
-			
-			<label> Amount <input type="number" name="expenseAmount" step="any"/></label></br></br>
-			
-			<label> Comments <input type="text" name="expenseComments"></label></br></br>
-			
-			<input type="submit" value="Add new expense">
-		</form>
-		
-	</body>
-</html>
+	</html>				
