@@ -215,6 +215,9 @@ text-align: center;
 #email
 {
 	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	padding-bottom: 2px;
 	cursor: default;
 }
 

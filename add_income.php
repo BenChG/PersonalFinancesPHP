@@ -146,7 +146,7 @@
 			
 			<div class="long_tile">	
 				<div id="rights">
-					2020 &copy; Personal Finances  
+					2021 &copy; Personal Finances  
 					</br> 
 					by Benedykt Chałubiński-Gonerko	
 				</div>
