@@ -3,7 +3,7 @@
 	<head>
 		
 		<meta charset="utf-8"/>
-		<title>Main page</title>
+		<title>Log in!</title>
 		<meta name="description" content="Personal Finances - the best way to manage and save your money" />
 		<meta name="keywords" content="finances, personal, budget, money, wallet, save, incomes, expenses, manage" />
 		<meta name="author" content="BCG">
@@ -24,8 +24,8 @@
 			
 			<div class="tile_left">	
 				<div class="tile_icon">	
-					<a href="signin.php" target="_blank" class="link">
-						<i class="icon-edit-1"></br> Log in - control</br> your budget! </i>
+					<a href="signin.php" class="link">
+						<i class="icon-login-1"></br> Log in - control</br> your budget! </i>
 					</a>	
 				</div>	
 			</div>	
@@ -33,7 +33,7 @@
 			<div class="tile_right">
 				<div class="tile_icon">
 					<a href="registration.php" class="link">
-						<i class="icon-login-1"></br>Registration - create </br> account for free!</i>
+						<i class="icon-edit-1"></br>Registration - create </br> account for free!</i>
 					</a>
 				</div>
 			</div>	

@@ -80,7 +80,7 @@
 	<head>
 		
 		<meta charset="utf-8">
-		<title>Add expense</title>
+		<title>Add new expense</title>
 		<meta name="description" content="Personal Finanes">
 		<meta name="keywords" content="finances, personal finances, budget, personal budget, income, outcome">
 		<meta name="author" content="BCG">
@@ -95,16 +95,16 @@
 		<body>
 			
 			
-			<div id="container"style="margin-top:120px;">
+			<div id="container_exp">
 				
 				<div>
 					
 					<div class="tile_icon_balance">
-						<a href="main_page.php" class="link"><i class="icon-undo2"></i></a>	
+						<a href="main_page.php" class="link" title="Go back to Main Page"><i class="icon-home2"></i></a>	
 					</div>
 					
-					<div class="header_main_menu">
-						Personal Finances 
+					<div class="header">
+						Personal Budget 
 					</div>
 					
 					<div style="clear:both;"></div>		

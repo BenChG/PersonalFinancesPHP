@@ -46,7 +46,7 @@
 			
 			<div class="tile_right">
 				<div class="tile_icon">
-					<a href="index.php" target="_blank" class="link">
+					<a href="index.php" class="link">
 						<i class="icon-home"></br>Home</i>
 					</a>	
 				</div>

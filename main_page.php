@@ -37,11 +37,11 @@
 		<div id="container">
 			
 			<div class="tile_icon_balance">
-				<a href="index.html" class="link"><i class="icon-home2"></i></a>	
+				<a href="logout.php" class="link" title="Log out"><i class="icon-logout"></i></a>	
 			</div>
 			
-			<div class="header_main_menu">
-				Personal Finances 
+			<div class="header">
+				Personal budget
 			</div>
 			
 			<div style="margin-left:-6px;">	

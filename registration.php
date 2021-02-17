@@ -188,7 +188,7 @@
 <html lang="pl">
 	<head>
 		<meta chatset="utf-8"/>
-		<title>Personal finanses - create your own account!</title>
+		<title>Register now!</title>
 		<meta name="description" content="Personal Finances - the best way to manage and save your money" />
 		<meta name="keywords" content="finances, personal, budget, money, wallet, save, incomes, expenses, manage" />
 		<meta name="author" content="BCG">
@@ -221,7 +221,7 @@
 		<div id="container"style="margin-top:120px;">
 			
 			<div class="header">
-				Personal Finances
+				Personal Budget
 			</div>	
 			
 			<form method="post">
@@ -281,7 +281,7 @@
 				
 				<div class="tile_right">
 					<div class="tile_icon">
-						<a href="index.html" target="_blank" class="link">
+						<a href="index.php" class="link">
 							<i class="icon-home"></br>Home</i>
 						</a>	
 					</div>
