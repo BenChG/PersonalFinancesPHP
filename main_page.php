@@ -30,7 +30,7 @@
 	
 		<?php
 	
-	echo "<p>Hello " .$_SESSION['username'].'! [ <a href="logout.php" class="link">Log out!</a>]</p>';
+	echo "<p>Hello " .$_SESSION['username']."</p>";
 	
 	?>
 		
