@@ -111,8 +111,8 @@
 					
 				</div>
 				
-				<div class="transaction" style="background-color: #33CC33;"> 
-					Add new income.
+				<div class="header_expense"> 
+					Add new expense
 				</div>
 				
 				<div class="long_tile">	

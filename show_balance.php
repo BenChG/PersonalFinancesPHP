@@ -16,7 +16,7 @@
 	
 	<body>
 		
-		<div id="container">
+		<div id="container_balance">
 			
 			<div class="tile_icon_balance">
 				<a href="logout.php" class="link" title="Log out"><i class="icon-logout"></i></a>	
@@ -29,8 +29,6 @@
 			<div class="header">
 				Personal budget
 			</div>
-			
-			
 			
 			<?php
 				
@@ -58,7 +56,7 @@
 						
 						if($result = $connection->query("SELECT * FROM incomes WHERE user_id='$id'"))
 						{
-							echo "List of incomes:"."<br/>"; 
+							echo "<div class='header_income' style='margin-bottom:5px;'> List of incomes:"."</div>"; 
 							echo "<table>
 							<tr>
 							<th>Id</th>
@@ -95,8 +93,8 @@
 								$SumOfIncomes = $SumOfIncomes + $row['amount'];
 							}
 							
-							echo "<tr>".'<td colspan="5">Sum of incomes: '.number_format($SumOfIncomes,2)." $</td></tr>";
-							echo "</table></br>";	
+							echo "<tr>".'<td colspan="5"><div class="sumOf">Sum of incomes: '.number_format($SumOfIncomes,2)." $</div></td></tr>";
+							echo "</table><div style='margin-top: 10px;'</div>";	
 						}	
 						else
 						{ 
@@ -105,8 +103,8 @@
 						
 						if($result = $connection->query("SELECT * FROM expenses WHERE user_id='$id'"))
 						{
-							echo "List of expenses:"."<br/>"; 
-							echo "<table border='1', bordercolor='red'>
+							echo "<div class='header_expense' style='margin-bottom:5px;'>List of expenses:"."</div>"; 
+							echo "<table>
 							<tr>
 							<th>Id</th>
 							<th>Date</th>	
@@ -154,14 +152,14 @@
 								echo "</tr>";	
 								$SumOfExpenses = $SumOfExpenses + $row['amount'];
 							}
-							echo "<tr>".'<td colspan="6">Sum of expenses: '.number_format($SumOfExpenses,2)." $</td></tr>";
-							echo "</table></br>";	
+							echo "<tr>".'<td colspan="6"><div class="sumOf">Sum of expenses: '.number_format($SumOfExpenses,2)." $</div></td></tr>";
+							echo "</table>";	
 							
 							
 							$Balance = $SumOfIncomes-$SumOfExpenses;
 							
 							
-							echo "<b> Total balance: ".number_format($Balance,2)." $ </b>";
+							echo "<div class='total_balance'>Total balance: ".number_format($Balance,2)." $ </div>";
 						}
 						
 						

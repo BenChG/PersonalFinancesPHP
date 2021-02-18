@@ -89,8 +89,8 @@
 			
 			<div style="clear:both;"></div>	
 			
-			<div class="transaction" style="background-color: #33CC33;"> 
-				Add new income.
+			<div class="header_income"> 
+				Add new income
 			</div>
 			
 			<div class="long_tile">	
