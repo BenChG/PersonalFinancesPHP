@@ -81,8 +81,8 @@
 			</div>		
 			
 			<div class="tile_menu">
-				<div class="tile_icon_menu" style="background-color:#2E86C1;">	
-					<a href="show_balance.php" class="link"><i class="icon-balance-scale"></br><h1>Selected period</h1></i></a>
+				<div class="tile_icon_menu" style="background-color:#ff3399;">	
+					<a href="balance_current_year.php" class="link"><i class="icon-balance-scale"></br><h1>Current year</h1></i></a>
 				</div>
 			</div>		
 			
