@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-	
+		
 		<meta charset="utf-8">
 		<title>Show the balance</title>
 		<meta name="description" content="Personal Finances - the best way to manage and save your money" />
@@ -35,11 +35,16 @@
 				global $SumOfIncomes;
 				global $SumOfExpenses;
 				
+				$start = date("Y-m-d");
+				$start = date('Y-m-01', strtotime($start. ' - 1 month')); 
+				
+				$end = date("Y-m-d");
+				$end =date('Y-m-t', strtotime($end. ' - 1 month')); 
+				
 				session_start();
 				
 				$id = 	$_SESSION['id'];
-				
-				
+						
 				require_once "connect.php";
 				mysqli_report(MYSQLI_REPORT_STRICT);
 				
@@ -54,10 +59,7 @@
 					else
 					{
 						
-						
-						
-						
-						if($result = $connection->query("SELECT * FROM incomes WHERE user_id='$id'"))
+						if($result = $connection->query("SELECT * FROM incomes WHERE user_id='$id' AND date_of_income BETWEEN '$start' AND '$end'"))
 						{
 							echo "<div class='header_income' style='margin-bottom:5px;'> List of incomes:"."</div>"; 
 							echo "<table>
@@ -68,8 +70,6 @@
 							<th>Category</th>
 							<th>Comments</th>
 							</tr>";
-							
-							
 							
 							while ($row = mysqli_fetch_array($result))
 							{
@@ -104,7 +104,7 @@
 							throw new Exception($connection->error);
 						}
 						
-						if($result = $connection->query("SELECT * FROM expenses WHERE user_id='$id'"))
+						if($result = $connection->query("SELECT * FROM expenses WHERE user_id='$id' AND date_of_expense BETWEEN '$start' AND '$end'"))
 						{
 							echo "<div class='header_expense' style='margin-bottom:5px;'>List of expenses:"."</div>"; 
 							echo "<table>
@@ -157,15 +157,12 @@
 							}
 							echo "<tr>".'<td colspan="6"><div class="sumOf">Sum of expenses: '.number_format($SumOfExpenses,2)." $</div></td></tr>";
 							echo "</table>";	
-							
-							
+												
 							$Balance = $SumOfIncomes-$SumOfExpenses;
-							
-							
+														
 							echo "<div class='total_balance'>Total balance: ".number_format($Balance,2)." $ </div>";
 						}
-						
-						
+											
 						else
 						{ 
 							throw new Exception($connection->error);

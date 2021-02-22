@@ -69,14 +69,14 @@
 			<div style="margin-left:-6px;">
 				<div class="tile_menu">	
 					<div class="tile_icon_menu" style="background-color:#D35400;">	
-						<a href="show_balance.php" class="link"><i class="icon-balance-scale"></br><h1>Current month</h1></i></a>	
+						<a href="balance_current_month.php" class="link"><i class="icon-balance-scale"></br><h1>Current month</h1></i></a>	
 					</div>	
 				</div>	
 			</div>	
 			
 			<div class="tile_menu">
 				<div class="tile_icon_menu" style="background-color:#707B7C">
-					<a href="show_balance.php" class="link"><i class="icon-balance-scale"></br><h1>Previous month</h1></i></a>
+					<a href="balance_previous_month.php" class="link"><i class="icon-balance-scale"></br><h1>Previous month</h1></i></a>
 				</div>
 			</div>		
 			

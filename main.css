@@ -337,3 +337,17 @@ p
 	
 }
 
+.tile_date
+{
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 46px;
+	width: 242px;
+	height: 46px;
+	background-color: #008080;
+	border:  2px solid #C0C0C0;
+	border-radius: 5px;	
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
